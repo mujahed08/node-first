@@ -3,9 +3,12 @@ import express from 'express'
 import path from 'path';
 import {fileURLToPath} from 'url';
 import auth from './routes/auth.js'
+import init from './trace/tracer.cjs'
 
-//const express = require('express');
-//const path = require("path");
+init.init('demo-node-service', 'development')
+import * as api  from '@opentelemetry/api'
+
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
